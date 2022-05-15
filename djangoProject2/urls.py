@@ -25,12 +25,12 @@ from django.views.static import serve
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}),
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+
     ]
 
 urlpatterns += i18n_patterns(
-
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 
     path("calculator_app/",include("calculator.urls")),
 
