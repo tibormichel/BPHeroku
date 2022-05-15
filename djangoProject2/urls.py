@@ -25,8 +25,6 @@ from django.views.static import serve
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-
-
     ]
 
 urlpatterns += i18n_patterns(
