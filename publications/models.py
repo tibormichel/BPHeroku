@@ -12,8 +12,8 @@ from research.models import Research
 class Publication(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    # created_by = models.ForeignKey(Person, on_delete=models.CASCADE, blank=True, null=True) #toto bolo namiesto riadku pod tym
-    created_by = models.ManyToManyField(Person)
+    created_by = models.ForeignKey(Person, on_delete=models.CASCADE, blank=True, null=True) #toto bolo namiesto riadku pod tym
+    # created_by = models.ManyToManyField(Person)
     related_project = models.ForeignKey(Project, on_delete=models.CASCADE, blank=True, null=True)
     related_research = models.ForeignKey(Research, on_delete=models.CASCADE, blank=True, null=True)
     body = models.TextField()

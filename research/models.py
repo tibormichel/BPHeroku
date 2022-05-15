@@ -7,7 +7,7 @@ from people.models import Person
 # from publications.models import Publication
 
 class Research(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, blank=True, null=True)
     title_sk = models.CharField(max_length=255, blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_by = models.ManyToManyField(Person)
@@ -15,7 +15,7 @@ class Research(models.Model):
     # related_publication = models.OneToOneField('publications.Publication', on_delete=models.CASCADE, null=True)
     # related_project = models.OneToOneField('projects.Project', on_delete=models.CASCADE, null=True)
     # related_project = models.ManyToManyField(Project)
-    body = RichTextField(blank=True)
+    body = RichTextField(blank=True, null = True)
     body_sk = RichTextField(blank=True, null=True)
 
     def __str__(self):
