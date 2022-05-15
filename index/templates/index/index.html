@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+{% block MainHeader %}Intelligent Information Systems Laboratory{% endblock %}
+
+{% block content %}
+
+{#    {% trans "lets translate this" %}#}
+{#    {% trans object_list %}#}
+
+    {% get_current_language as LANGUAGE_CODE %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="card info" style="width: 22rem;">
+            <div class="card-body">
+                <h5 class="card-title">IISLAB</h5>
+                <h6 class="card-subtitle mb-2 text-muted">About us</h6>
+                <p class="card-text">SWe conduct fundamental and applied research in two major areas: system modelling
+                    and data analysis & interpretation. In area of system modelling our system development covers IoT,
+                    wireless communication and sensor networks. Research applications of data analysis include: expert
+                    systems, feature selection methods, bankruptcy prediction, handwriting analysis, interpretation of
+                    biomedical signal and data etc.
+
+                    We support interdisciplinarity and topics that bridges research from several departments or
+                    universities.
+
+                    Our lab was formed just recently in 2015 so we are still full of energy and we gladly welcome new
+                    team members or collaborators.</p>
+{#                <a href="#" class="card-link">Card link</a>#}
+{#                <a href="#" class="card-link">Another link</a>#}
+                <BR>
+
+            </div>
+        </div>
+{#        <img class="img1 d-inline" src="{% static "AI1.jpg" %}" class="rounded float-right" alt="My image" width="700"#}
+{#             height="700">#}
+        <img class="img1 d-inline" src="{% static "thumbnail_ISSLAB.png" %}" class="rounded float-right" alt="IISLAB logo" width="700"
+             height="700">
+
+    </div>
+</div>
+
+<br>
+<figure class="text-centerNews">
+    <blockquote class="blockquote">
+        <h1 class="header2">News</h1>
+    </blockquote>
+</figure>
+
+
+
+    <div class="news">
+        <div class="row">
+        {% if LANGUAGE_CODE == 'en' %}
+        {% for post in object_list %}
+            <div class="col-12 col-md-6">
+                <div class="card card_center">
+                <div class="card-body card_center">
+{#                    <a href = "{% url 'article-detail' post.pk %}"> <h5 class="card-title" >{{ post.title }}</h5> </a>#}
+                    <a href = "{% url 'article-detail' post.pk %}"> <h5 class="card-title card_center" >{% trans post.title %}</h5> </a>
+
+                    <p class="card-text card_center">
+                        {% blocktranslate %} {{ post.title }}{% endblocktranslate %}
+                        {{ post.body | safe}}</p>
+                </div>
+            </div></div>
+        {% endfor %}
+        {% endif %}
+
+        {% if LANGUAGE_CODE == 'sk' %}
+        {% for post in object_list %}
+            {% if post.title_sk is not None %}
+            <div class="col-12 col-md-6">
+                <div class="card card_center">
+                <div class="card-body card_center">
+                    <a href = "{% url 'article-detail' post.pk %}"> <h5 class="card-title card_center" >{{ post.title_sk }}</h5> </a>
+{#                    <a href = "{% url 'article-detail' post.pk %}">#}
+{#                        <h5 class="card-title" >{% post.title_sk %}</h5> </a>#}
+
+                    <p class="card-text card_center">
+
+                        {{ post.body_sk | safe}}</p>
+                </div>
+            </div></div>
+            {% endif %}
+
+            {% if post.title_sk is None %}
+            <div class="col-12 col-md-6">
+                <div class="card card_center">
+                <div class="card-body card_center">
+                    <a href = "{% url 'article-detail' post.pk %}"> <h5 class="card-title card_center" >{{ post.title }}</h5> </a>
+{#                    <a href = "{% url 'article-detail' post.pk %}">#}
+{#                        <h5 class="card-title" >{% post.title_sk %}</h5> </a>#}
+
+                    <p class="card-text card_center">
+
+                        {{ post.body | safe}}</p>
+                </div>
+            </div></div>
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+    </div>
+    </div>
+
+
+
+<br>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
+{% endblock %}

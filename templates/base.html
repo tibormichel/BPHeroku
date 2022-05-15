@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+{% load static i18n %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>IISLABu</title>
+</head>
+
+    <div id="listItems", name="listItems">
+        {% block listItems %}
+        {% endblock %}
+    </div>
+
+{% include 'navbar.html' %}
+
+<figure class="text-center">
+    <blockquote class="blockquote">
+        <h1 class="header1">{% block MainHeader %}
+        {% endblock %}</h1>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+        Since <cite title="Source Title">2016</cite>
+    </figcaption>
+</figure>
+
+{% block content %}
+
+{% endblock %}
+
+{% include 'footer.html' %}

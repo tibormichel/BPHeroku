@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+{% block MainHeader %}News{% endblock %}
+
+
+
+{% block content %}
+<body class=" d-flex flex-column min-vh-100">
+
+
+<div class="article_detail">
+<h1 class="article_detail">{{ post.title }}</h1>
+<p class="article_detail">
+    {{ post.body  | safe}}
+</p>
+</div>
+
+<br>
+<br>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<div class="wrapper flex-grow-1"></div>
+</body>
+</html>
+{% endblock %}
+
+
+{##}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#<h1>{{ post.title }}</h1>#}
+{#<small>By: {{ post.author.first_name }} {{ post.author.last_name }}</small><br/>#}
+{#<hr>#}
+{#<br/>#}
+{#{{ post.body }}#}
+{#<br/><br/><br/>#}
+{#<a href="{% url 'home' %}">back</a>#}
+{#</body>#}
+{#</html>#}

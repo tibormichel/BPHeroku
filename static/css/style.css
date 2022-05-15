@@ -1,0 +1,357 @@
+body {
+    background-color: whitesmoke;
+}
+
+h1 {
+    color: black;
+    background: yellowgreen;
+    padding-left: 45%;
+
+}
+
+h2 {
+    background: lightgray;
+
+}
+h4 {
+    background: lightgray;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    padding: 3px;
+}
+
+p {
+}
+
+ul {
+    position: center;
+    list-style-type: none;
+    padding-left: 35%;
+    overflow: hidden;
+    background-color: black;
+
+}
+
+li {
+    float: left;
+
+}
+
+li a {
+    display: block;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+
+    transition: transform 250ms;
+    color: white;
+    -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -ms-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
+
+}
+
+a:hover {
+    transform: translateY(+3px);
+    color: yellowgreen;
+}
+
+a.brand {
+    font-size: xxx-large
+}
+
+.active {
+    background: dodgerblue;
+    color: white;
+}
+
+div.line {
+    background: red;
+    color: gray;
+}
+
+h1.header1 {
+    background: gray;
+    color: white;
+    padding-left: 0%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+h1.header2 {
+    background: gray;
+    color: white;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+div.adress1 {
+    margin-left: 10%;
+    border-top: dodgerblue solid 5px;
+    border-left: dodgerblue solid 5px;
+    padding-top: 2%;
+    padding-left: 2%;
+}
+
+div.adress2 {
+    margin-left: 70%;
+    border-bottom: dodgerblue solid 5px;
+    border-right: dodgerblue solid 5px;
+    padding-top: 2%;
+    padding-right: 2%;
+}
+
+figure.text-centerNews {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+figure.text-center {
+    /*padding-left: 5%;*/
+    /*padding-right: 5%;*/
+}
+
+/*img.img1 {*/
+
+/*    !*border-bottom: solid dodgerblue 5px;*!*/
+/*    !*border-right: solid dodgerblue 2px;*!*/
+/*}*/
+
+.img1 {
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+    border-bottom: solid 5px dodgerblue;
+    /*border-right: solid 5px dodgerblue;*/
+    padding-bottom: 2%;
+}
+
+img.imgLogo {
+    /*margin-right: 3%;*/
+    margin-top: 1%;
+}
+
+div.row {
+    /*display: inline-flex;*/
+}
+div.tab-pane {
+    margin-left: 18%;
+    margin-right: 18%;
+}
+div.researches {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+div.news {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+div.projects {
+    padding-right: 15%;
+    padding-left: 15%;
+}
+
+div.card {
+    background: white;
+    padding-top: 3%;
+    border: none;
+    /*border-left: solid dodgerblue 2px;*/
+    border-top: solid dodgerblue 5px;
+}
+
+div.card-list {
+    background: white;
+    padding-top: 0%;
+    border: none;
+    /*border-left: solid dodgerblue 2px;*/
+    border-top: solid dodgerblue 5px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h5.card-title {
+    border: none;
+    color: black;
+}
+
+h1.card-title-teaching {
+    color: black;
+    background: white;
+    padding-left: 0%;
+    padding-bottom: 2%;
+}
+
+
+div.form-inline {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+footer.page-footer {
+    background: gray;
+    padding-top: 10%;
+}
+
+h5 {
+    /*border-bottom: solid black 2px;*/
+    /*border-right: solid black 2px;*/
+
+}
+
+div.d-flex {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+div.d-flex-adress{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+div.tab-pane {
+    background: white;
+}
+
+p.pfooter {
+}
+a.nav-link{
+    color: dodgerblue;
+}
+navbar.people {
+
+}
+
+.map-container {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.map-container iframe {
+    left: 10%;
+    top: 5%;
+    height: 80%;
+    width: 80%;
+    position: absolute;
+}
+
+div.cardTeaching1 {
+    margin-left: 15%;
+    padding-top: 5%;
+  border-left: dodgerblue solid 5px;
+  border-top: dodgerblue solid 5px;
+  border-bottom: dodgerblue solid 5px;
+}
+
+div.cardTeaching2 {
+    padding-left: 35%;
+    padding-top: 5%;
+    margin-right: 0%;
+  border-bottom: dodgerblue solid 5px;
+  border-right: dodgerblue solid 5px;
+}
+
+img.categoryImg{
+   margin-left: 30%;
+}
+div.categories{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+nav{
+    /*border-top: solid 5px dodgerblue;*/
+    /*border-right: solid 5px gray;*/
+    /*border-left: solid 5px gray;*/
+    /*color: dodgerblue;*/
+}
+div.navbar-nav{
+        margin-left: 70%;
+    color: dodgerblue;
+    }
+
+/*@media only screen and (min-width: 1000px) {*/
+
+/*    div.navbar-nav{*/
+/*    margin-left: 40%;*/
+
+/*    }*/
+/*}*/
+div.accordation{
+
+
+    /*padding-left: 30%;*/
+
+}
+form{
+     padding-left: 30%;
+    align-content: center;
+    display: list-item;
+     margin: auto;
+      padding-bottom: 2%;
+    padding-top: 2%
+
+}
+div.d-flex.footer{
+        margin: auto;
+  width: 80%;
+        /*padding-left: 0;*/
+        /*margin-left: 2%;*/
+    }
+
+div.article_detail{
+    padding-left: 15%;
+    padding-right: 15%;
+}
+h1.article_detail{
+    margin: auto;
+    background-color: dodgerblue;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+.card_center{
+    margin: auto;
+    align-content: center;
+    text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+
+    div.info{
+        margin: auto;
+    }
+    .img1{
+        /*margin-left: 10%;*/
+        margin: auto;
+    }
+    img.imgLogo.d-inline{
+        margin-left: 0;
+        padding-left: 0;
+        margin-right: 0;
+        padding-right: 0;
+    }
+    h5.footer{font-size: large}
+    div.p-2{
+        margin-left: 6%;
+        padding: 0;
+        font-size: medium;
+    }
+    div.article_detail{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+}
+
+
+
