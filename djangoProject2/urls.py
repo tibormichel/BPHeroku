@@ -31,6 +31,9 @@ urlpatterns += i18n_patterns(
 
     path("calculator_app/",include("calculator.urls")),
 
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+
     path('',include("index.urls")),
     path("research/", include("research.urls")),
     path("people/", include("people.urls")),

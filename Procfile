@@ -1,1 +1,1 @@
-web: gunicorn iislab.wsgi
+web: gunicorn djangoProject2.wsgi
