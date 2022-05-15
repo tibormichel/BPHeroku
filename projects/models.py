@@ -17,7 +17,7 @@ class Project(models.Model):
     title = models.CharField(max_length=255,null=True)
     title_sk = models.CharField(max_length=255, blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
-    # category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     # category_name = category.title
 
     # created_by = models.ForeignKey(Person, on_delete=models.CASCADE, default=1)
