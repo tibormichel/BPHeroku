@@ -13,7 +13,7 @@ class Research(models.Model):
     # created_by = models.ForeignKey(Person, on_delete=models.CASCADE, default=1)
     # related_publication = models.OneToOneField('publications.Publication', on_delete=models.CASCADE)
     # related_project = models.OneToOneField('projects.Project', on_delete=models.CASCADE)
-    body = RichTextField(blank=True,null=True)
+    body = RichTextField(blank=True,null=True ,default=' ')
     body_sk = RichTextField(blank=True, null=True)
 
     def __str__(self):
