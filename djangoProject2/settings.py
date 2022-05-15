@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-k$a9qlo7x(=il^f1_h3p1i=*ou10z&m#%m)+_##2-o%8g)m)(@
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1','iislab.com']
+ALLOWED_HOSTS = ['127.0.0.1','iislab.herokuapp.com']
 
 # Application definition
 
