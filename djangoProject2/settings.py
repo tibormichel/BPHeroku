@@ -146,5 +146,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/person_profile_pics/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/person_profile_pics')
 
-
 django_heroku.settings(locals())
