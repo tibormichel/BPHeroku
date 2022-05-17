@@ -15,5 +15,5 @@ class Person(models.Model):
 
 
     def __str__(self):
-        return self.title + ' | ' + str(self.author)
+        return self.title
 
