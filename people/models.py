@@ -9,7 +9,7 @@ class Person(models.Model):
     status = models.CharField(max_length=256, choices=[('Employee', 'Employee'), ('Student', 'Student'), ('Doctorand', 'Doctorand'), ('Uncategorized', 'Uncategorized') ])
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     profile_pic = models.ImageField(null = True, blank=True)
-    # body = models.TextField(null=True, blank=True)
+    body = models.TextField(null=True, blank=True)
     body = RichTextField(blank=True, null = True)
     body_sk = RichTextField(blank=True, null=True)
 
