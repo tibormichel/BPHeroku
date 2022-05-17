@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from people.models import Person
 
 
-class Category(models.Model):
+class Pategory(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(null=True)
@@ -17,7 +17,7 @@ class Project(models.Model):
     title = models.CharField(max_length=255)
     title_sk = models.CharField(max_length=255, blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Pategory, on_delete=models.CASCADE, null=True)
     # category_name = category.title
 
     created_by = models.ForeignKey(Person, on_delete=models.CASCADE, default=1)

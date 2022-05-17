@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView
 # Create your views here.
 from django.shortcuts import render, HttpResponse
 
-from .models import Project, Category
+from .models import Project, Pategory
 
 
 # Create your views here.
@@ -23,7 +23,7 @@ def CategoryListView(request, cats):
     return render(request, 'projects/categories_list.html', {'cats':cats, 'category_projects':category_projects})
 
 class CategoriesView(ListView):
-    model = Category
+    model = Pategory
     template_name = 'projects/categories.html'
 
 class ArticleDetailView(DetailView):
