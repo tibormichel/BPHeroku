@@ -15,10 +15,3 @@ class PublicationFilter(django_filters.FilterSet):
     class Meta:
         model = Publication
         fields = ('title','created_by')
-        # fields = {
-        #     'title': ['icontains'],
-        #     'created_by' : []
-        #
-        # }
-
-        # fields += ('title','created_by')

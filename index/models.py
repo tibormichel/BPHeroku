@@ -10,4 +10,4 @@ class Post(models.Model):
     body = RichTextField(blank=True)
     body_sk = RichTextField(blank=True, null=True)
     def __str__(self):
-        return self.title + ' | ' + str(self.author)
+        return self.title
