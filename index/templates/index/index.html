@@ -11,10 +11,6 @@
 {% block MainHeader %}Intelligent Information Systems Laboratory{% endblock %}
 
 {% block content %}
-
-{#    {% trans "lets translate this" %}#}
-{#    {% trans object_list %}#}
-
     {% get_current_language as LANGUAGE_CODE %}
 
 <div class="container">
@@ -24,27 +20,22 @@
             <div class="card-body">
                 <h5 class="card-title">IISLAB</h5>
                 <h6 class="card-subtitle mb-2 text-muted">About us</h6>
-                <p class="card-text">SWe conduct fundamental and applied research in two major areas: system modelling
-                    and data analysis & interpretation. In area of system modelling our system development covers IoT,
-                    wireless communication and sensor networks. Research applications of data analysis include: expert
-                    systems, feature selection methods, bankruptcy prediction, handwriting analysis, interpretation of
-                    biomedical signal and data etc.
-
-                    We support interdisciplinarity and topics that bridges research from several departments or
-                    universities.
-
-                    Our lab was formed just recently in 2015 so we are still full of energy and we gladly welcome new
-                    team members or collaborators.</p>
+                {% if more_model_objects.text is not None%}
+                <p class="card-text">{{ more_model_objects.text }}</p>
 {#                <a href="#" class="card-link">Card link</a>#}
 {#                <a href="#" class="card-link">Another link</a>#}
                 <BR>
+                {% endif %}
 
             </div>
         </div>
 {#        <img class="img1 d-inline" src="{% static "AI1.jpg" %}" class="rounded float-right" alt="My image" width="700"#}
 {#             height="700">#}
-        <img class="img1 d-inline" src="{% static "thumbnail_ISSLAB.png" %}" class="rounded float-right" alt="IISLAB logo" width="700"
+        {% if more_model_objects.logo.url is not None%}
+            <img class="img1 d-inline" src="{% static  more_model_objects.logo.url  %}" class="rounded float-right" alt="IISLAB logo" width="700"
              height="700">
+        {% endif %}
+
 
     </div>
 </div>

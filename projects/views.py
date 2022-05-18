@@ -14,7 +14,7 @@ from django.shortcuts import render, HttpResponse
 # #   return HttpResponse("Hello world!")
 #     return render(request, "projects/projects.html", dict())
 
-class HomeView(ListView,):
+class HomeView(ListView):
     model = Project
     template_name = 'projects/projects.html'
 
