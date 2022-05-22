@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html>
 {% block MainHeader %}Projects{% endblock %}
 {% block content %}
+        {% get_current_language as LANGUAGE_CODE %}
 <body class="d-flex flex-column min-vh-100">
 <div class="categories projects">
     <div class="row">
@@ -11,12 +13,28 @@
             <div class="col-12 col-md-6">
                 <div class="card card_center">
                     <div class="card-body card_center">
-                        <img class="card_center imgLogo d-inline" src="{{category.image.url}}" class="rounded" alt="My image"
+                        {% if category.image.url is not None %}
+                            <img class="card_center imgLogo d-inline" src="{{category.image.url}}" class="rounded" alt="My image"
                      width="64" height="64">
+                        {% endif %}
+                        {% if LANGUAGE_CODE == 'en' %}
+                        {% if category.title is not None %}
                         <a href="{% url 'category-detail' category.title %}"><h5 class="card-title card_center">{{ category.title }}</h5>
                         </a>
-                        <p class="card-text card_center ">
-                            {{ category.title }}</p>
+                        {% endif %}
+                        {% endif %}
+                    {% if LANGUAGE_CODE == 'sk' %}
+                        {% if category.title_sk is not None %}
+                        <a href="{% url 'category-detail' category.title %}"><h5 class="card-title card_center">{{ category.title_sk }}</h5>
+                        </a>
+                            {% elif category.title_sk is None %}
+                                {% if category.title is not None %}
+                        <a href="{% url 'category-detail' category.title %}"><h5 class="card-title card_center">{{ category.title }}</h5>
+                        </a>
+                                    {% endif %}
+                        </a>
+                    {% endif %}
+                    {% endif %}
                     </div>
                 </div>
             </div>

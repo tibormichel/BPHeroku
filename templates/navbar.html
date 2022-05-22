@@ -3,44 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
     <title>IISLAB</title>
 </head>
-{#<div class="navbar navbar-inverse navbar-fixed-top">#}
-{#    <div class="container-fluid">#}
-{#        <a class="brand" href="http://127.0.0.1:8000/"><b>IISLAB</b></a>#}
-{##}
-{#        <nav class="nav justify-content-end">#}
-{#            <a class="nav-link" href="http://127.0.0.1:8000/research/">Research</a>#}
-{#            <a class="nav-link" href="http://127.0.0.1:8000/people/">People</a>#}
-{#            <a class="nav-link" href="http://127.0.0.1:8000/projects/categories">Projects</a>#}
-{#            <a class="nav-link" href="http://127.0.0.1:8000/publications/">Publications</a>#}
-{#            <a class="nav-link" href="http://127.0.0.1:8000/teaching/">Teaching</a>#}
-{#            <a class="nav-link" href="http://127.0.0.1:8000/contact/">Contact</a>#}
-{#        </nav>#}
-{#    </div>#}
-{#</div>#}
+
 
 <body>
-<nav class="navbar navbar-expand-lg">
+{#<nav class="navbar navbar-expand-lg">#}
+{#    <a class="brand" href="/"><b>IISLAB</b></a>#}
+{# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">#}
+{#    <span class="navbar-toggler-icon"></span>#}
+{#  </button>#}
+{#  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">#}
+{#      <div class="nav navbar-nav justify-content-end">#}
+{#            <a class="nav-link" href="/research/">{% trans "Research" %}</a>#}
+{#            <a class="nav-link" href="/people/">{% trans "People" %}</a>#}
+{#            <a class="nav-link" href="/projects/categories">{% trans "Projects" %}</a>#}
+{#            <a class="nav-link" href="/publications/">{% trans "Publications" %}</a>#}
+{#            <a class="nav-link" href="/teaching/">{% trans "Teaching" %}</a>#}
+{#            <a class="nav-link" href="/contact/">{% trans "Contact" %}</a>#}
+{#        </div>#}
+{##}
+{#  </div>#}
+{#</nav>#}
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <a class="brand" href="/"><b>IISLAB</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="nav navbar-nav justify-content-end">
-            <a class="nav-link" href="/research/">{% trans "Research" %}</a>
+    <div class="navbar-nav nav">
+         <a class="nav-item nav-link" href="/research/">{% trans "Research" %}</a>
             <a class="nav-link" href="/people/">{% trans "People" %}</a>
-            <a class="nav-link" href="/projects/categories">{% trans "Projects" %}</a>
-            <a class="nav-link" href="/publications/">{% trans "Publications" %}</a>
-            <a class="nav-link" href="/teaching/">{% trans "Teaching" %}</a>
-            <a class="nav-link" href="/contact/">{% trans "Contact" %}</a>
-        </div>
-
+            <a class="nav-item nav-link" href="/projects/categories">{% trans "Projects" %}</a>
+            <a class="nav-item nav-link" href="/publications/">{% trans "Publications" %}</a>
+            <a class="nav-item nav-link" href="/teaching/">{% trans "Teaching" %}</a>
+            <a class="nav-item nav-link" href="/contact/">{% trans "Contact" %}</a>
+    </div>
   </div>
 </nav>
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

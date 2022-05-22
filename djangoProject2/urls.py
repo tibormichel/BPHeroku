@@ -26,9 +26,6 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
 
-
-    path("calculator_app/",include("calculator.urls")),
-
     path('',include("index.urls")),
     path("research/", include("research.urls")),
     path("people/", include("people.urls")),

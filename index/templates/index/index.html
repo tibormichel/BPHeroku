@@ -8,115 +8,124 @@
 
 <body>
 
-{% block MainHeader %}Intelligent Information Systems Laboratory{% endblock %}
+{% block MainHeader %}{% trans "Intelligent Information Systems Laboratory" %}{% endblock %}
 
 {% block content %}
     {% get_current_language as LANGUAGE_CODE %}
 
-<div class="container">
-    <div class="row">
+    <div class="container">
+        <div class="row">
 
-        <div class="card info" style="width: 22rem;">
-            <div class="card-body">
-                <h5 class="card-title">IISLAB</h5>
-                <h6 class="card-subtitle mb-2 text-muted">About us</h6>
-                {% if more_model_objects.text is not None%}
-                <p class="card-text">{{ more_model_objects.text }}</p>
-{#                <a href="#" class="card-link">Card link</a>#}
-{#                <a href="#" class="card-link">Another link</a>#}
-                <BR>
-                {% endif %}
-
+            <div class="card info" style="width: 22rem;">
+                <div class="card-body">
+                    <h5 class="card-title">IISLAB</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{% trans "About IISLAB" %}</h6>
+                    {% if LANGUAGE_CODE == 'en' %}
+                        {% if more_model_objects.text is not None %}
+                            <p class="card-text">{{ more_model_objects.text }}</p>
+                            <BR>
+                        {% endif %}
+                    {% endif %}
+                    {% if LANGUAGE_CODE == 'sk' %}
+                        {% if more_model_objects.text_sk is not None %}
+                            <p class="card-text">{{ more_model_objects.text_sk }}</p>
+                            <BR>
+                        {% elif more_model_objects.text is not None %}
+                            <p class="card-text">{{ more_model_objects.text }}</p>
+                            <BR>
+                            %}
+                        {% endif %}
+                    {% endif %}
+                </div>
             </div>
+            {% if more_model_objects.logo.url is not None %}
+                <img class="img1 d-inline" src="{% static  more_model_objects.logo.url %}" class="rounded float-right"
+                     alt="IISLAB logo" width="700"
+                     height="700">
+            {% endif %}
         </div>
-{#        <img class="img1 d-inline" src="{% static "AI1.jpg" %}" class="rounded float-right" alt="My image" width="700"#}
-{#             height="700">#}
-        {% if more_model_objects.logo.url is not None%}
-            <img class="img1 d-inline" src="{% static  more_model_objects.logo.url  %}" class="rounded float-right" alt="IISLAB logo" width="700"
-             height="700">
-        {% endif %}
-
-
     </div>
-</div>
 
-<br>
-<figure class="text-centerNews">
-    <blockquote class="blockquote">
-        <h1 class="header2">News</h1>
-    </blockquote>
-</figure>
-
+    <br>
+    <figure class="text-centerNews">
+        <blockquote class="blockquote">
+            <h1 class="header2">{% trans "News" %}</h1>
+        </blockquote>
+    </figure>
 
 
     <div class="news">
         <div class="row">
-        {% if LANGUAGE_CODE == 'en' %}
-        {% for post in object_list %}
-            <div class="col-12 col-md-6">
-                <div class="card card_center">
-                <div class="card-body card_center">
-{#                    <a href = "{% url 'article-detail' post.pk %}"> <h5 class="card-title" >{{ post.title }}</h5> </a>#}
-                    <a href = "{% url 'article-detail' post.pk %}"> <h5 class="card-title card_center" >{% trans post.title %}</h5> </a>
+            {% if LANGUAGE_CODE == 'en' %}
+                {% for post in object_list %}
+                    <div class="col-12 col-md-6">
+                        <div class="card card_center">
+                            <div class="card-body card_center">
+                                {#                    <a href = "{% url 'article-detail' post.pk %}"> <h5 class="card-title" >{{ post.title }}</h5> </a>#}
 
-                    <p class="card-text card_center">
-                        {% blocktranslate %} {{ post.title }}{% endblocktranslate %}
-                        {{ post.body | safe}}</p>
-                </div>
-            </div></div>
-        {% endfor %}
-        {% endif %}
 
-        {% if LANGUAGE_CODE == 'sk' %}
-        {% for post in object_list %}
-            {% if post.title_sk is not None %}
-            <div class="col-12 col-md-6">
-                <div class="card card_center">
-                <div class="card-body card_center">
-                    <a href = "{% url 'article-detail' post.pk %}"> <h5 class="card-title card_center" >{{ post.title_sk }}</h5> </a>
-{#                    <a href = "{% url 'article-detail' post.pk %}">#}
-{#                        <h5 class="card-title" >{% post.title_sk %}</h5> </a>#}
 
-                    <p class="card-text card_center">
+                                    {% if post.title is not None %}
+                                          <a href="{% url 'article-detail' post.pk %}"><h5
+                                        class="card-title card_center"> {{ post.title }} </h5></a>
+                                    {% endif %}
 
-                        {{ post.body_sk | safe}}</p>
-                </div>
-            </div></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             {% endif %}
 
-            {% if post.title_sk is None %}
-            <div class="col-12 col-md-6">
-                <div class="card card_center">
-                <div class="card-body card_center">
-                    <a href = "{% url 'article-detail' post.pk %}"> <h5 class="card-title card_center" >{{ post.title }}</h5> </a>
-{#                    <a href = "{% url 'article-detail' post.pk %}">#}
-{#                        <h5 class="card-title" >{% post.title_sk %}</h5> </a>#}
+            {% if LANGUAGE_CODE == 'sk' %}
+                {% for post in object_list %}
+                    {% if post.title_sk is not None %}
+                        <div class="col-12 col-md-6">
+                            <div class="card card_center">
+                                <div class="card-body card_center">
+                                    <a href="{% url 'article-detail' post.pk %}"><h5
+                                            class="card-title card_center">{{ post.title_sk }}</h5></a>
+                                    {#                    <a href = "{% url 'article-detail' post.pk %}">#}
+                                    {#                        <h5 class="card-title" >{% post.title_sk %}</h5> </a>#}
+                                    <p class="card-text card_center">
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
 
-                    <p class="card-text card_center">
-
-                        {{ post.body | safe}}</p>
-                </div>
-            </div></div>
+                    {% if post.title_sk is None %}
+                        <div class="col-12 col-md-6">
+                            <div class="card card_center">
+                                <div class="card-body card_center">
+                                    <a href="{% url 'article-detail' post.pk %}"><h5
+                                            {% if post.title is not None %}
+                                            class="card-title card_center">{{ post.title }}</h5></a>
+                                            {% endif %}
+                                    {#                    <a href = "{% url 'article-detail' post.pk %}">#}
+                                    {#                        <h5 class="card-title" >{% post.title_sk %}</h5> </a>#}
+{#                                    <p class="card-text card_center">{{ post.body | safe }}</p>#}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             {% endif %}
-        {% endfor %}
-        {% endif %}
-    </div>
+        </div>
     </div>
 
 
 
-<br>
+    <br>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 
-</body>
-</html>
+    </body>
+    </html>
 {% endblock %}

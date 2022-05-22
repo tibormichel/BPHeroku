@@ -34,8 +34,40 @@
 <div class="article_detail">
 <h1 class="article_detail">{{ person.title }}</h1>
 <p class="article_detail">
-    {{ person.body  | safe}}
-{{ person.publication_set.all|join:", " }}
+    <b>About: </b>{{ person.body  | safe}}
+<b>Related publications: </b>{{ person.publication_set.all|join:", " }} <br>
+  <b>Related projects: </b>  {{ person.project_set.all|join:", " }}
+      <br><br>
+    <b>Rozvrh: </b>
+{#    {{ room }}<br>#}
+
+    {% for i in response %}
+
+        {{ semester.pop }}
+        {{ subjects.pop }}
+        {{ day.pop }}
+        {{ room.pop }}
+        {{ time1.pop }}
+        {{ time2.pop }}
+
+        <br><br>
+    {% endfor %}
+
+
+{#    {% for  ak_rok, semester, den, miestnost, cas1, cas2, cas3, cas4, cas5, skratka_ps, skratka_rj in response %}#}
+{#        {{ pes }}#}
+{#        <br><br>#}
+{#{% endfor %}#}
+{##}
+{##}
+{#    {% for i in semester.items %}#}
+{#        {{ i }}#}
+{#        <br><br>#}
+{#    {% endfor %}#}
+
+
+
+
 </p>
 </div>
 

@@ -1,3 +1,4 @@
+import requests
 from ckeditor.fields import RichTextField
 from django.db import models
 from django.contrib.auth.models import User
@@ -12,6 +13,7 @@ class Person(models.Model):
     profile_pic = models.ImageField(null = True, blank=True)
     body = RichTextField(blank=True, null = True)
     body_sk = RichTextField(blank=True, null=True)
+    # timetable = requests.get("https://kpi:GWsy6BfLfc9rUB03tT6e@maisutils.tuke.sk/export/?vystup=rozvrh_pedagoga&login=" + ).json()
 
 
     def __str__(self):

@@ -6,7 +6,7 @@ from people.models import Person
 
 class Pategory(models.Model):
     title = models.CharField(max_length=255)
-    # title_sk = models.CharField(max_length=255)
+    title_sk = models.CharField(max_length=255,null = True,blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField(null=True)
 
