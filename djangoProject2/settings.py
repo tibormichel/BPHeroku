@@ -128,7 +128,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 # LANGUAGE_CODE = 'sk'
-
+LANGUAGES = [
+    ('en','English'),
+    ('sk','Slovak'),
+]
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

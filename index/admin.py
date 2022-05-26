@@ -3,3 +3,4 @@ from .models import Post, IndexStaticContent
 
 admin.site.register(Post)
 admin.site.register(IndexStaticContent)
+

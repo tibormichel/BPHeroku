@@ -3,7 +3,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-{% block MainHeader %}Subjects{% endblock %}
+{% block MainHeader %}{% trans 'Subjects' %}{% endblock %}
 {% block content %}
 
     {% get_current_language as LANGUAGE_CODE %}
@@ -23,7 +23,7 @@
                             {% endif %}
 
                             {% if subject.link is not None %}
-                                <a class="Card link" href="{{ subject.link }}" role="button">Stránka predmetu</a>
+                                <a class="Card link" href="{{ subject.link }}" role="button">{% trans 'Subject Page' %}</a>
                             {% endif %}
                         </div>
                     </div>
@@ -52,7 +52,7 @@
 
 
                             {% if subject.link is not None %}
-                                <a class="Card link" href="{{ subject.link }}" role="button">Stránka predmetu</a>
+                                <a class="Card link" href="{{ subject.link }}" role="button">{% trans 'Subject page' %}</a>
                             {% endif %}
                         </div>
                     </div>

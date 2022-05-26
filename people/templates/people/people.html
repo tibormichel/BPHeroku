@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html>
 
-{% block MainHeader %}People{% endblock %}
+{% block MainHeader %}{%trans 'People' %}{% endblock %}
 
 
 {% block content %}
@@ -15,11 +16,11 @@
 <nav>
     <div class="nav nav-tabs text-center justify-content-center" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-           aria-controls="nav-home" aria-selected="true">Employees</a>
+           aria-controls="nav-home" aria-selected="true">{% trans 'Employees' %}</a>
         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-           aria-controls="nav-profile" aria-selected="false">Doctorand student</a>
+           aria-controls="nav-profile" aria-selected="false">{% trans 'Phd Students' %}</a>
         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-           aria-controls="nav-contact" aria-selected="false">Students</a>
+           aria-controls="nav-contact" aria-selected="false">{% trans 'Students' %}</a>
     </div>
 </nav>
 
@@ -34,12 +35,20 @@
 
                 <div class="col-12 col-md-4">
             <div class="card">
-                <img class="card-img-top card_center" src="{{person.profile_pic.url}}" alt="Card image cap" width="50"
-                     height="250">
+                {% if person.profile_pic.url is not None %}
+{#                    <img class="card-img-top card_center" src="{{person.profile_pic.url}}" alt="Card image cap" width="50"#}
+{#                     height="250">#}
+                   <img class="rounded mx-auto d-block" src="{{ person.profile_pic.url }}" alt="Card image cap" width="300"
+                 height="300">
+                {% endif %}
                 <div class="card-body card_center">
+                    {% if person.title is not None %}
                     <h5 class="card-title card_center">{{ person.title }}</h5>
-                    <a href="{% url 'person-detail' person.pk %}" class="btn card_center btn-primary"><h5 class="card-title card_center">Profile</h5>
-                        </a>
+                    {% endif %}
+{#                    <a href="{% url 'person-detail' person.pk %}" class="btn card_center btn-primary"><h5 class="card-title card_center">Profile</h5>#}
+{#                        </a>#}
+                                         <a class="btn btn-primary btn-lg" href="{% url 'person-detail' person.pk %}" role="button">{% trans 'Profile' %}</a>
+
                 </div>
 
                 </div>
@@ -56,12 +65,17 @@
 
                 <div class="col-12 col-md-4">
             <div class="card">
-                <img class="card-img-top card_center" src="{{person.profile_pic.url}}" alt="Card image cap" width="50"
-                     height="250">
+                {% if person.profile_pic.url is not None %}
+                     <img class="rounded mx-auto d-block" src="{{ person.profile_pic.url }}" alt="Card image cap" width="300"
+                 height="300">
+                {% endif %}
                 <div class="card-body card_center">
+                    {% if person.title is not None %}
                     <h5 class="card-title card_center">{{ person.title }}</h5>
-                    <a href="{% url 'person-detail' person.pk %}" class="btn card_center btn-primary"><h5 class="card_center card-title">Profile</h5>
-                        </a>
+                    {% endif %}
+{#                    <a href="{% url 'person-detail' person.pk %}" class="btn card_center btn-primary"><h5 class="card_center card-title">Profile</h5>#}
+{#                        </a>#}
+                 <a class="btn btn-primary btn-lg" href="{% url 'person-detail' person.pk %}" role="button">{% trans 'Profile' %}</a>
                 </div>
 
                 </div>
@@ -78,12 +92,17 @@
 
                 <div class="col-12 col-md-4">
             <div class="card card_center">
-                <img class="card-img-top card_center" src="{{person.profile_pic.url}}" alt="Card image cap" width="50"
-                     height="250">
+                {% if person.profile_pic.url is not None %}
+                     <img class="rounded mx-auto d-block" src="{{ person.profile_pic.url }}" alt="Card image cap" width="300"
+                 height="300">
+                {% endif %}
                 <div class="card-body card_center">
+                    {% if person.title is not None %}
                     <h5 class="card-title card_center">{{ person.title }}</h5>
-                    <a href="{% url 'person-detail' person.pk %}" class="btn btn-primary card_center"><h5 class="card-title card_center">Profile</h5>
-                        </a>
+                    {% endif %}
+{#                    <a href="{% url 'person-detail' person.pk %}" class="btn btn-primary card_center"><h5 class="card-title card_center">Profile</h5>#}
+{#                        </a>#}
+                 <a class="btn btn-primary btn-lg" href="{% url 'person-detail' person.pk %}" role="button">{% trans 'Profile' %}</a>
                 </div>
 
                 </div>
@@ -93,10 +112,8 @@
      </div>
     </div>
 </div>
-
 <br>
 <br>
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

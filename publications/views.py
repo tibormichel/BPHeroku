@@ -1,13 +1,7 @@
 from django.views.generic import ListView, DetailView
 
-# Create your views here.
-from django.shortcuts import render, HttpResponse
 from .filters import PublicationFilter
 from .models import Publication
-
-# def publications(request):
-# #   return HttpResponse("Hello world!")
-#     return render(request, "publications/publications.html", dict())
 
 class HomeView(ListView):
     model = Publication

@@ -1,90 +1,85 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>Title</title>#}
-{#</head>#}
-{#<body>#}
-{#<h1>{{ person.title }}</h1>#}
-{#<small>By: {{ person.author.first_name }} {{ person.author.last_name }}</small><br/>#}
-{#<hr>#}
-{#<br/>#}
-{#{{ person.body }}#}
-{#{{ person.publication_set.all|join:", " }}#}
-{#{{ person.publication_set }}#}
-{#<br/><br/><br/>#}
-{#<a href="{% url 'people' %}">back</a>#}
-{#</body>#}
-{#</html>#}
-
-
-
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html>
-{% block MainHeader %}News{% endblock %}
-
-
+{% block MainHeader %}{% trans 'People' %}{% endblock %}
 
 {% block content %}
-<body class=" d-flex flex-column min-vh-100">
+    {% get_current_language as LANGUAGE_CODE %}
+    <body class=" d-flex flex-column min-vh-100">
 
 
-<div class="article_detail">
-<h1 class="article_detail">{{ person.title }}</h1>
-<p class="article_detail">
-    <b>About: </b>{{ person.body  | safe}}
-<b>Related publications: </b>{{ person.publication_set.all|join:", " }} <br>
-  <b>Related projects: </b>  {{ person.project_set.all|join:", " }}
-      <br><br>
-    <b>Rozvrh: </b>
-{#    {{ room }}<br>#}
-
-    {% for i in response %}
-
-        {{ semester.pop }}
-        {{ subjects.pop }}
-        {{ day.pop }}
-        {{ room.pop }}
-        {{ time1.pop }}
-        {{ time2.pop }}
-
+    <div class="article_detail">
+        <h1 class="article_detail">{{ person.title }}</h1>
+        <br>
+        {% if  person.profile_pic.url is not None %}
+            <img class="rounded mx-auto d-block" src="{{ person.profile_pic.url }}" alt="Card image cap" width="300"
+                 height="300">
+        {% endif %}
         <br><br>
-    {% endfor %}
+        <p class="article_detail"> <br>
+            <b>{% trans 'About: ' %}</b> <br>
+            {% if LANGUAGE_CODE == 'en' %}
+                {{ person.body  | safe }}
+            {% endif %}
+            {% if LANGUAGE_CODE == 'sk' %}
+                {{ person.body_sk  | safe }}
+            {% endif %}
+            <b>{% trans 'Related publications: ' %}</b> <br>{{ person.publication_set.all|join:"  ,  " }} <br>
+            <b>{% trans 'Related researches: ' %}</b> <br>{{ person.research_set.all|join:"  ,  " }} <br>
+            <b>{% trans 'Related projects: ' %}</b>  <br>{{ person.project_set.all|join:"  ,  " }}
+            <br><br>
+            <b>{% trans 'Timetable: ' %}</b>
+            {#    {{ room }}<br>#}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">{% trans 'Semester' %}</th>
+                    <th scope="col">{% trans 'Subject' %}</th>
+                    <th scope="col">{% trans 'Day' %}</th>
+                    <th scope="col">{% trans 'Room' %}</th>
+                    <th scope="col">{% trans 'Time' %}</th>
 
+                </tr>
+                </thead>
+                <tbody>
 
-{#    {% for  ak_rok, semester, den, miestnost, cas1, cas2, cas3, cas4, cas5, skratka_ps, skratka_rj in response %}#}
-{#        {{ pes }}#}
-{#        <br><br>#}
-{#{% endfor %}#}
-{##}
-{##}
-{#    {% for i in semester.items %}#}
-{#        {{ i }}#}
-{#        <br><br>#}
-{#    {% endfor %}#}
+                {% for i in response %}
 
+                    <tr>
+                        <td>{{ semester.pop }}</td>
+                        <td>{{ subjects.pop }}</td>
+                        <td>{{ day.pop }}</td>
+                        <td>{{ room.pop }}</td>
+                        <td>{{ time1.pop }} , {{ time2.pop }}</td>
 
+                    </tr>
 
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a class="btn btn-primary btn-lg" href="/people" role="button">{% trans 'Back' %}</a>
 
-</p>
-</div>
+        </p>
+    </div>
 
-<br>
-<br>
+    <br>
+    <br>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 
-<div class="wrapper flex-grow-1"></div>
-</body>
-</html>
+    <div class="wrapper flex-grow-1"></div>
+    </body>
+    </html>
 {% endblock %}

@@ -1,46 +1,46 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>Title</title>#}
-{#</head>#}
-{#<body>#}
-{#<h1>{{ project.title }}</h1>#}
-{#<small>By: {{ project.author.first_name }} {{ project.author.last_name }}</small><br/>#}
-{#<hr>#}
-{#<br/>#}
-{#{{ project.body }}#}
-{#<br/>#}
-{#{{ project.related_publication.title }}#}
-{#<br/>#}
-{#{{ project.category.title }}#}
-{#<br/>#}
-{#{{ project.related_research.title }}#}
-{#<br/><br/><br/>#}
-{#<a href="{% url 'projects' %}">back</a>#}
-{#</body>#}
-{#</html>#}
 
 
 
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html>
 
-{% block MainHeader %}News{% endblock %}
+{% block MainHeader %}{% trans 'Projects' %}{% endblock %}
 
 
 
 {% block content %}
+    {% get_current_language as LANGUAGE_CODE %}
 <body class=" d-flex flex-column min-vh-100">
 
 
 <div class="article_detail">
+    {% if LANGUAGE_CODE == 'en' %}
 <h1 class="article_detail">{{ project.title }}</h1>
+
 <p class="article_detail">
     {{ project.body  | safe}}
 </p>
+    {% endif %}
+
+    {% if LANGUAGE_CODE == 'sk' %}
+        {% if project.title_sk is not None %}
+<h1 class="article_detail">{{ project.title_sk }}</h1>
+    {% endif %}
+        {% if project.title_sk is None %}
+<h1 class="article_detail">{{ project.title }}</h1>
+    {% endif %}
+<p class="article_detail">
+    {{ project.body_sk  | safe}}
+</p>
+    {% endif %}
+        <b>{% trans 'Category: ' %}</b>{{ project.category }} <br>
+         <b>{% trans 'Related publications: ' %}</b>{{ project.publication_set.all|join:", " }} <br>
+        <b>{% trans 'Authors: ' %}</b>{{ project.created_by.all|join:", " }} <br>
+        <a class="btn btn-primary btn-lg" href="/projects/categories" role="button">{% trans 'Back' %}</a>
+
 </div>
 
 <br>
@@ -62,21 +62,3 @@
 {% endblock %}
 
 
-{##}
-{##}
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>Title</title>#}
-{#</head>#}
-{#<body>#}
-{#<h1>{{ post.title }}</h1>#}
-{#<small>By: {{ post.author.first_name }} {{ post.author.last_name }}</small><br/>#}
-{#<hr>#}
-{#<br/>#}
-{#{{ post.body }}#}
-{#<br/><br/><br/>#}
-{#<a href="{% url 'home' %}">back</a>#}
-{#</body>#}
-{#</html>#}

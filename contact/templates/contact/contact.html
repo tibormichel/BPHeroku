@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html>
 
-{% block MainHeader %}Contact{% endblock %}
+{% block MainHeader %}{% trans 'Contact' %}{% endblock %}
 
 
 {% block content %}
@@ -18,15 +19,15 @@
 <!--Google map-->
 <div class="d-flex-adress">
     <div class="adress1">
-        <h3 class="contact">Technical University of Košice</h3>
-        <h3 class="contact">Faculty of Electrical Engineering and Informatics</h3>
-        <h3 class="contact">Department of Computers and Informatics</h3>
+        <h3 class="contact">{% trans 'Technical University of Košice' %}</h3>
+        <h3 class="contact">{% trans 'Faculty of Electrical Engineering and Informatics' %}</h3>
+        <h3 class="contact">{% trans 'Department of Computers and Informatics' %}</h3>
     </div>
 
     <div class="adress2">
         <p>Letná 9</p>
         <p>042 00 Košice</p>
-        <p>Slovenská republika</p>
+        <p>{% trans 'Slovak republic'%}</p>
     </div>
 </div>
 

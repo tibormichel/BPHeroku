@@ -12,7 +12,14 @@ btn-outline-dark{
 }
 h2 {
     background: lightgray;
-}
+}form.languages{
+        display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    align-content: center;
+    padding-left: 0;
+ }
 h4 {
     background: lightgray;
     width: 40%;
@@ -241,30 +248,46 @@ div.row-teaching{
     flex-wrap: wrap;
     width: 99%;
 }
+div.publications{
+    display: flex;
+       width: 70%;
+    margin: auto;
+
+   }
+
+
 @media only screen and (max-width: 600px) {
-    div.info{
+    div.info {
         margin: auto;
     }
-    .img1{
+
+    .img1 {
         margin: auto;
     }
-    img.imgLogo.d-inline{
+
+    img.imgLogo.d-inline {
         margin-left: 0;
         padding-left: 0;
         margin-right: 0;
         padding-right: 0;
     }
-    h5.footer{font-size: large}
-    div.p-2{
+
+    h5.footer {
+        font-size: large
+    }
+
+    div.p-2 {
         margin-left: 6%;
         padding: 0;
         font-size: medium;
     }
-    div.article_detail{
-    padding-left: 5%;
-    padding-right: 5%;
-}
-   div.cardTeaching1{
-       width: 90%;
-   }
+
+    div.article_detail {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    div.cardTeaching1 {
+        width: 90%;
+    }
 }

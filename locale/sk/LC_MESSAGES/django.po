@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-11 10:34+0200\n"
+"POT-Creation-Date: 2022-05-25 04:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,39 +19,183 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n "
 ">= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 
-#: .\index\templates\index\index.html:71
-#, python-format
-msgid " %(post.title)s"
-msgstr ""
+#: .\contact\templates\contact\contact.html:7 .\templates\navbar.html:47
+msgid "Contact"
+msgstr "Kontakt"
 
-#: .\index\templates\index\index.html:77
-#, python-format
-msgid "Custom message with %(post.title)s text inside"
-msgstr ""
+#: .\contact\templates\contact\contact.html:22 .\templates\footer.html:7
+msgid "Technical University of Košice"
+msgstr "Technická Univerzita v Košiciach"
 
-#: .\templates\navbar.html:34
-msgid "Research"
-msgstr "Výskum"
+#: .\contact\templates\contact\contact.html:23
+msgid "Faculty of Electrical Engineering and Informatics"
+msgstr "Fakulta elektrotechniky a informatiky"
 
-#: .\templates\navbar.html:35
+#: .\contact\templates\contact\contact.html:24
+msgid "Department of Computers and Informatics"
+msgstr "Katedra počítačov a informatiky"
+
+#: .\contact\templates\contact\contact.html:30
+msgid "Slovak republic"
+msgstr "Slovenská republika"
+
+#: .\index\templates\index\article_details.html:7
+#: .\index\templates\index\index.html:52
+msgid "News"
+msgstr "Novinky"
+
+#: .\index\templates\index\article_details.html:43
+#: .\people\templates\people\person_details.html:64
+#: .\projects\templates\projects\categories_list.html:48
+#: .\projects\templates\projects\project_details.html:64
+#: .\research\templates\research\research_details.html:60
+msgid "Back"
+msgstr "Späť"
+
+#: .\index\templates\index\index.html:11 .\templates\footer.html:17
+msgid "Intelligent Information Systems Laboratory"
+msgstr "Laboratórium Informačných Inteligentných Systémov"
+
+#: .\index\templates\index\index.html:22
+msgid "About IISLAB"
+msgstr "O IISLABE"
+
+#: .\people\templates\people\people.html:7
+#: .\people\templates\people\person_details.html:6 .\templates\navbar.html:43
 msgid "People"
 msgstr "Členovia"
 
-#: .\templates\navbar.html:36
+#: .\people\templates\people\people.html:19
+msgid "Employees"
+msgstr "Zamestnanci"
+
+#: .\people\templates\people\people.html:21
+msgid "Phd Students"
+msgstr "Doktorandi"
+
+#: .\people\templates\people\people.html:23
+msgid "Students"
+msgstr "Študenti"
+
+#: .\people\templates\people\people.html:48
+#: .\people\templates\people\people.html:76
+#: .\people\templates\people\people.html:103
+msgid "Profile"
+msgstr "Profil"
+
+#: .\people\templates\people\person_details.html:22
+msgid "About: "
+msgstr "Informácie: "
+
+#: .\people\templates\people\person_details.html:29
+#: .\projects\templates\projects\project_details.html:62
+#: .\research\templates\research\research_details.html:58
+msgid "Related publications: "
+msgstr "Súvisiace publikácie: "
+
+#: .\people\templates\people\person_details.html:30
+msgid "Related researches: "
+msgstr "Súvisiace výskumy: "
+
+#: .\people\templates\people\person_details.html:31
+msgid "Related projects: "
+msgstr "Súvisiace projekty: "
+
+#: .\people\templates\people\person_details.html:33
+msgid "Timetable: "
+msgstr "Rozvrh: "
+
+#: .\people\templates\people\person_details.html:39
+msgid "Semester"
+msgstr "Semester"
+
+#: .\people\templates\people\person_details.html:40
+msgid "Subject"
+msgstr "Predmet"
+
+#: .\people\templates\people\person_details.html:41
+msgid "Day"
+msgstr "Deň"
+
+#: .\people\templates\people\person_details.html:42
+msgid "Room"
+msgstr "Miestnosť"
+
+#: .\people\templates\people\person_details.html:43
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2186
+msgid "Time"
+msgstr "Čas"
+
+#: .\projects\templates\projects\categories.html:6
+#: .\projects\templates\projects\project_details.html:32
+#: .\templates\navbar.html:44
 msgid "Projects"
 msgstr "Projekty"
 
-#: .\templates\navbar.html:37
+#: .\projects\templates\projects\project_details.html:61
+msgid "Category: "
+msgstr "Kategória"
+
+#: .\projects\templates\projects\project_details.html:63
+#: .\research\templates\research\research_details.html:59
+msgid "Authors: "
+msgstr "Autori"
+
+#: .\publications\templates\publications\publications.html:7
+#: .\templates\navbar.html:45
 msgid "Publications"
 msgstr "Publikácie"
 
-#: .\templates\navbar.html:38
+#: .\publications\templates\publications\publications.html:16
+msgid "Publication filter"
+msgstr "Filter publikácií"
+
+#: .\publications\templates\publications\publications.html:19
+#, fuzzy
+#| msgid "Research"
+msgid "Search"
+msgstr "Vyhľadaj"
+
+#: .\publications\templates\publications\publications.html:28
+#, fuzzy
+#| msgid "Authors: "
+msgid "Author"
+msgstr "Autor"
+
+#: .\publications\templates\publications\publications.html:29
+msgid "Name"
+msgstr "Názov"
+
+#: .\publications\templates\publications\publications.html:30
+msgid "Link"
+msgstr "Link"
+
+#: .\research\templates\research\research.html:9
+#: .\research\templates\research\research_details.html:25
+#: .\templates\navbar.html:42
+msgid "Research"
+msgstr "Výskum"
+
+#: .\teaching\templates\teaching\teaching.html:6
+msgid "Subjects"
+msgstr "Predmety"
+
+#: .\teaching\templates\teaching\teaching.html:26
+msgid "Subject Page"
+msgstr "Stránka predmetu"
+
+#: .\teaching\templates\teaching\teaching.html:55
+msgid "Subject page"
+msgstr "Stránka predmetu"
+
+#: .\templates\footer.html:42
+#: .\venv\Lib\site-packages\django\forms\widgets.py:405
+msgid "Change"
+msgstr "Zmeň"
+
+#: .\templates\navbar.html:46
 msgid "Teaching"
 msgstr "Výučba"
-
-#: .\templates\navbar.html:39
-msgid "Contact"
-msgstr "Kontakt"
 
 #: .\venv\Lib\site-packages\ckeditor_uploader\forms.py:6
 msgid "Search files"
@@ -472,10 +616,6 @@ msgid ""
 "invalid time."
 msgstr ""
 
-#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2186
-msgid "Time"
-msgstr ""
-
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2312
 msgid "URL"
 msgstr ""
@@ -715,10 +855,6 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:404
 msgid "Currently"
-msgstr ""
-
-#: .\venv\Lib\site-packages\django\forms\widgets.py:405
-msgid "Change"
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:714

@@ -1,37 +1,65 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html>
 
-{% block MainHeader %}News{% endblock %}
+{% block MainHeader %}{% trans 'News' %}{% endblock %}
 
 
 
 {% block content %}
-<body class=" d-flex flex-column min-vh-100">
-<div class="article_detail">
-<h1 class="article_detail">{{ post.title }}</h1>
-<p class="article_detail">
-    {{ post.body  | safe}}
-</p>
-</div>
+    {% get_current_language as LANGUAGE_CODE %}
+    <body class=" d-flex flex-column min-vh-100">
+    <div class="article_detail">
 
-<br>
-<br>
+        {% if LANGUAGE_CODE  == 'en' %}
+            {% if post.title is not None %}
+                <h1 class="article_detail">{{ post.title }}</h1>
+            {% endif %}
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+            {% if post.body is not None %}
+                <p class="article_detail">
+                    {{ post.body  | safe }}
+                </p>
+            {% endif %}
+        {% endif %}
 
-<div class="wrapper flex-grow-1"></div>
-</body>
-</html>
+        {% if LANGUAGE_CODE  == 'sk' %}
+            {% if post.title_sk is not None %}
+                <h1 class="article_detail">{{ post.title_sk}}</h1>
+            {% elif post.title_sk is None %}
+                    <h1 class="article_detail">{{ post.title }}</h1>
+            {% endif %}
+
+            {% if post.body_sk is not None %}
+                <p class="article_detail">
+                    {{ post.body_sk | safe }}
+                </p>
+            {% endif %}
+        {% endif %}
+
+
+        <a class="btn btn-primary btn-lg" href="/" role="button">{% trans 'Back' %}</a>
+    </div>
+
+
+    <br>
+    <br>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <div class="wrapper flex-grow-1"></div>
+    </body>
+    </html>
 {% endblock %}
 
 

@@ -1,23 +1,31 @@
 {% load static %}
-
+{% load i18n %}
 <footer class="page-footer font-small teal pt-4 ">
-
+    {% get_current_language as LANGUAGE_CODE %}
 
     <div class="d-flex footer">
-        <div class="mr-auto p-2"><h5 class="footer text-uppercase font-weight-bold">Technical University of Košice</h5>
+        <div class="mr-auto p-2"><h5 class="footer text-uppercase font-weight-bold">{% trans 'Technical University of Košice' %}</h5>
             <div class="d-flex">
+                 <a href="https://www.fei.tuke.sk/">
                 <img class="imgLogo d-inline" src="{% static "tukelogoyellow.png" %}" class="rounded float-left"
                      alt="My image" width="48" height="48">
+                 </a>
+                 <a href="https://www.tuke.sk/wps/portal">
                 <img class="imgLogo d-inline" src="{% static "tukelogoblack.png" %}" class="rounded float-left"
                      alt="My image" width="48" height="48">
+                 </a>
+                <a href="https://kpi.fei.tuke.sk/">
                 <img class="imgLogo d-inline" src="{% static "kpilogo.png" %}" class="rounded float-left" alt="My image"
                      width="48" height="48">
+                </a>
             </div>
         </div>
-        <div class="p-2"><h5 class="footer text-uppercase font-weight-bold">Intelligent Information Systems Laboratory</h5>
+        <div class="p-2"><h5 class="footer text-uppercase font-weight-bold">{% trans 'Intelligent Information Systems Laboratory' %}</h5>
             <div class="d-flex ">
+                <a href="https://www.facebook.com/IISLab.KPI.TUKE/">
                 <img class="imgLogo d-inline" src="{% static "fblogo3.png" %}" class="rounded float-right" alt="My image"
                      width="48" height="48">
+                </a>
             </div>
         </div>
 
@@ -25,8 +33,22 @@
 
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+   <div>
+{#        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>#}
+
+        <form class="languages" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input type="hidden" name="text" value="{{ redirect_to }}">
+            <select name="language" id="">
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+        <input type="submit" value="{% trans 'Change' %}">
+        </form>
     </div>
     <!-- Copyright -->
 

@@ -1,8 +1,6 @@
 
-# Create your views here.
-
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
 def contact(request):
-#   return HttpResponse("Hello world!")
+
     return render(request, "contact/contact.html", dict())

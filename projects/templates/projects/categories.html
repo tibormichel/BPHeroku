@@ -3,7 +3,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-{% block MainHeader %}Projects{% endblock %}
+{% block MainHeader %}{% trans 'Projects' %}{% endblock %}
 {% block content %}
         {% get_current_language as LANGUAGE_CODE %}
 <body class="d-flex flex-column min-vh-100">
