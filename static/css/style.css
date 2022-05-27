@@ -257,6 +257,7 @@ div.publications{
 
 
 @media only screen and (max-width: 600px) {
+
     div.info {
         margin: auto;
     }
@@ -273,7 +274,7 @@ div.publications{
     }
 
     h5.footer {
-        font-size: large
+        font-size: medium;
     }
 
     div.p-2 {
